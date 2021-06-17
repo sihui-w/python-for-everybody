@@ -1,0 +1,14 @@
+name = input('Enter file name:  ')
+try:
+    file = open(name)
+except:
+    print('File cannot be opened',name)
+    quit()
+filist = list()
+for line in file:
+    box = line.split()
+    for word in box:
+        if word not in filist :
+            filist.append(word)
+filist.sort()
+print(filist)
