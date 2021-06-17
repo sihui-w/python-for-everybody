@@ -1,0 +1,6 @@
+text = "X-DSPAM-Confidence:    0.8475"
+num = text.find(':')
+space = text[num+1:]
+pure = space.strip()
+fpure = float(pure)
+print(fpure)
