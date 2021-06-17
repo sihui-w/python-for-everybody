@@ -1,0 +1,25 @@
+name = input('Enter file name')
+count = dict()
+file = open(name)
+
+#make a dictionary
+for line in file:
+    if line.startswith('From:'):
+        continue
+    if line.startswith('From'):
+        words = line.split()
+        time =words[5]
+        hours = time.split(':')
+        hour = hours[0]
+        count[hour]=count.get(hour,0)+1
+
+#make a list
+box = list()
+for key,val in count.items():
+    pair = (key,val)
+    box.append(pair)
+
+#sort&print
+box = sorted(box)
+for key,val in box:
+    print(key,val)
