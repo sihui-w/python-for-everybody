@@ -1,0 +1,10 @@
+import re
+text = open('2.txt')
+numlist = list()
+for line in text:
+    line = line.rstrip()
+    mess = re.findall('[0-9]+',line)
+    for num in mess:
+        fnum = float(num)
+        numlist.append(fnum)
+print('Sum:',sum(numlist))
