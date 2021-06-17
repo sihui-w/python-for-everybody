@@ -1,0 +1,17 @@
+name = input('Enter file name:  ')
+try:
+    file = open(name)
+except:
+    print('File cannot be opened',name)
+    quit()
+filist = list()
+count = 0
+for line in file:
+    line = line.rstrip()
+    if line.startswith('From:'):
+        continue
+    if line.startswith('From'):
+        count = count+1
+        box = line.split()
+        print(box[1])
+print("There were", count, "lines in the file with From as the first word")
