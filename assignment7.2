@@ -1,0 +1,17 @@
+name = input('Enter file name: ')
+try:
+    fname = open(name)
+except:
+    print('File cannot be opened',name)
+    quit()
+count=0
+sun=0
+for line in fname:
+    if line.startswith('X-DSPAM-Confidence:'):
+        count = count+1
+        nun = line.find(':')
+        nli = line[nun+1:]
+        fnum = float(nli.lstrip())
+        sun=sun+fnum
+anum = sun/count
+print('Average spam confidence:',anum)
