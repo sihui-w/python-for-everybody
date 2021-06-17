@@ -1,0 +1,21 @@
+name = input('Enter file name:  ')
+file = open(name)
+
+#make a dictionary
+box = dict()
+for line in file:
+    if line.startswith('From:'):
+        continue
+    if line.startswith('From'):
+        mass = line.split()
+        word = mass[1]
+        box[word] = box.get(word,0)+1
+
+#make a max
+bigvalue = None
+bigtip = None
+for word,value in box.items():
+    if bigvalue is None or value > bigvalue:
+        bigvalue = value
+        bigtip = word
+print(bigtip,bigvalue)
